@@ -1,0 +1,29 @@
+.card-flex-container {
+    display: flex;
+    margin-top: 50px;
+}
+
+.card-image {
+    display: block;
+    width: 400px;
+    object-fit: contain;
+    border-radius: 7px;
+}
+
+.card-inner-container {
+    margin-left: 20px;
+    width: 400px;
+}
+
+.description {
+    display: block;
+
+}
+
+.additional-info {
+    display: block;
+}
+
+.bolder-font {
+    font-weight: 700;
+}
