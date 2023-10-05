@@ -1,6 +1,7 @@
 
 import { Notify } from 'notiflix';
-import { fetchBreeds, fetchCatByBreed, createBreedList, renderCatInfo } from './cat-api';
+import { fetchBreeds, fetchCatByBreed } from './cat-api';
+import { createBreedList, renderCatInfo } from './cat-card-render';
 import { select } from './refs';
 
 const errorMsg = 'Oops! Something went wrong! Try reloading the page!';
