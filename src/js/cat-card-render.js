@@ -8,8 +8,12 @@ export function createBreedList(breeds) {
     const placeholderOption = '<option id="000" value="" selected hidden disabled>Choose a cat breed</option>';
     
     new SlimSelect({
-        select: select,
-        data: breedOptions,
+        select: '#placeholder',
+        settings: {
+            placeholder: true,
+            placeholderText: 'Please choose a cat breed',
+        },
+        data: breedOptions
     });
 
     loaderEl.classList.add('hidden');
