@@ -14,7 +14,7 @@ function pageLoad() {
 
     fetchBreeds()
         .then(res => { createBreedList(res.data); })
-        .catch(e => { Notify.failure(errorMsg); })
+        .catch(e => { Notify.failure(errorMsg); console.log(e); })
         .finally(loaderEl.classList.add('hidden'));
  
 }
@@ -23,8 +23,15 @@ function onChange(event) {
     event.preventDefault();
     loaderEl.classList.remove('hidden');
 
-    fetchCatByBreed(event.target.value)
+    console.log(event.target.value);
+
+    if (event.target.value !== 'null') {
+        
+        fetchCatByBreed(event.target.value)
         .then(result => renderCatInfo(result))
         .catch(e => { Notify.failure(errorMsg); })
         .finally(loaderEl.classList.add('hidden'));
+    }
+
+   
 }

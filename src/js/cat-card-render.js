@@ -4,23 +4,25 @@ import 'slim-select/dist/slimselect.css';
 import { select, loaderEl, catInfoEl } from './refs';
 
 export function createBreedList(breeds) {
-    const breedOptions = breeds.map(({ name, id }) => ({ value: id, text: name }));
-    const placeholderOption = '<option id="000" value="" selected hidden disabled>Choose a cat breed</option>';
-    
+    let breedOptions = breeds.map(({ name, id }) => ({ value: id, text: name }));
+    let option = {
+        text: 'Select breed',
+        placeholder: true,
+        value: null
+    };
+
+    breedOptions.unshift(option);
+
     new SlimSelect({
-        select: '#placeholder',
-        settings: {
-            placeholder: true,
-            placeholderText: 'Please choose a cat breed',
-        },
+        select: select,
         data: breedOptions
     });
 
     loaderEl.classList.add('hidden');
     select.classList.remove('hidden');
 
-    select.insertAdjacentHTML(placeholderOption);
-    SlimSelect.insertAdjacentHTML(placeholderOption);
+    // select.insertAdjacentHTML(placeholderOption); 
+    // SlimSelect.insertAdjacentHTML(placeholderOption);
 }
 
 export function renderCatInfo(breedData) {
